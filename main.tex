@@ -1,0 +1,145 @@
+% !TeX program = xelatex
+% ============================================================================
+%  实 Grassmann 流形的欧氏非嵌入问题
+%  —— 由 Notion 主稿（page id 411ecac8-3544-81e4-8480-ceb337f02db0）复写
+%  编译：xelatex main.tex （两遍，生成目录与交叉引用）
+%  说明：本工程只做语法与排版层面的重整，不改变原文的数学内容与结论。
+% ============================================================================
+\documentclass[11pt,a4paper,UTF8]{ctexart}
+
+% ---------- 页面与版式 ----------
+\usepackage[a4paper,left=2.6cm,right=2.6cm,top=2.8cm,bottom=2.8cm]{geometry}
+\usepackage{fancyhdr}
+\usepackage{emptypage}
+\linespread{1.28}
+\setlength{\parskip}{0.28em}
+
+% ---------- 数学 ----------
+\usepackage{amsmath,amssymb,amsthm,mathtools,bm}
+\usepackage{mathrsfs}
+\allowdisplaybreaks[2]
+\numberwithin{equation}{section}
+
+% ---------- 表格与图形 ----------
+\usepackage{booktabs,array,multirow,makecell,tabularx}
+\usepackage{placeins}   % \FloatBarrier：防止表格漂到下一节标题之后
+\usepackage{enumitem}
+\setlist{itemsep=0.15em,topsep=0.35em,parsep=0pt}
+
+% ---------- 强调框 ----------
+\usepackage[most]{tcolorbox}
+\newtcolorbox{scope}{enhanced,breakable,colback=black!3,colframe=black!55,
+  boxrule=0.6pt,arc=2pt,left=8pt,right=8pt,top=6pt,bottom=6pt,
+  fonttitle=\bfseries,title=文档定位}
+
+% ---------- 颜色与超链接 ----------
+\usepackage{xcolor}
+\definecolor{linknavy}{RGB}{22,64,124}
+\definecolor{citegreen}{RGB}{27,102,74}
+\definecolor{urlgray}{RGB}{92,62,120}
+\usepackage[colorlinks=true,
+  linkcolor=linknavy, citecolor=citegreen, urlcolor=urlgray,
+  bookmarksnumbered=true, bookmarksopen=true,
+  pdftitle={实 Grassmann 流形的欧氏非嵌入问题},
+  pdfauthor={瞿楚杰},
+  pdfsubject={《文献阅读与课题调研》课程读书报告},
+  pdfkeywords={实 Grassmann 流形, Stiefel--Whitney 类, 欧氏嵌入, 浸入, Schubert 类, Gr\"obner 基}
+]{hyperref}
+
+% ---------- 目录紧凑化（避免目录溢到第二页） ----------
+\usepackage{tocloft}
+\setlength{\cftbeforesecskip}{3pt}
+\setlength{\cftbeforesubsecskip}{0.5pt}
+
+% ---------- 定理环境（中文） ----------
+\theoremstyle{plain}
+\newtheorem{theorem}{定理}[section]
+\newtheorem{proposition}[theorem]{命题}
+\newtheorem{lemma}[theorem]{引理}
+\newtheorem{corollary}[theorem]{推论}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{定义}
+\newtheorem{example}{例}[section]
+\theoremstyle{remark}
+\newtheorem{remark}{注}[section]
+\newtheorem*{remark*}{注}
+
+\renewcommand{\proofname}{证明}
+\renewcommand\qedsymbol{$\square$}
+% 允许“证明（……）”标题
+\makeatletter
+\renewenvironment{proof}[1][\proofname]{\par
+  \pushQED{\qed}%
+  \normalfont \topsep6\p@\@plus6\p@\relax
+  \trivlist
+  \item[\hskip\labelsep\itshape #1\@addpunct{.}]\ignorespaces
+}{%
+  \popQED\endtrivlist\@endpefalse
+}
+\makeatother
+
+% ---------- 常用记号 ----------
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\Ftwo}{\mathbb{F}_2}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\GK}{G_{k,n}}
+\newcommand{\cG}{\gamma}
+\newcommand{\cGc}{\gamma^{\perp}}
+\newcommand{\emb}{\hookrightarrow}
+\newcommand{\nemb}{\not\hookrightarrow}
+\newcommand{\imm}{\looparrowright}
+\newcommand{\wbar}{\bar w}
+\newcommand{\sw}[1]{w_{#1}}
+\newcommand{\Schubert}[1]{\left(#1\right)}
+\DeclareMathOperator{\Flag}{Flag}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\embdim}{embdim}
+\DeclareMathOperator{\imdim}{i}
+\newcommand{\tb}[1]{\textbf{#1}}
+
+% ---------- 页眉页脚 ----------
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\itshape 实 Grassmann 流形的欧氏非嵌入问题}
+\fancyhead[R]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% ============================================================================
+\begin{document}
+
+\begin{titlepage}
+  \centering
+  \vspace*{2.2cm}
+  {\LARGE\bfseries 实 Grassmann 流形的欧氏非嵌入问题\par}
+  \vspace{0.7cm}
+  {\large\bfseries ——Stiefel--Whitney 类方法的系统整理与经典结果复现\par}
+  \vspace{2.2cm}
+  {\large 瞿楚杰\par}
+  \vspace{0.5cm}
+  {\normalsize《文献阅读与课题调研》课程读书报告\par}
+  \vfill
+  {\normalsize \today\par}
+\end{titlepage}
+
+\pagenumbering{roman}
+\input{sections/00-abstract}
+\tableofcontents
+\clearpage
+\pagenumbering{arabic}
+
+\input{sections/00b-notation}
+\input{sections/01-intro}
+\input{sections/02-geometry}
+\input{sections/03-sw}
+\input{sections/04-classical}
+\input{sections/05-computation}
+\input{sections/06-conclusion}
+
+\appendix
+\clearpage
+\input{sections/90-appendix}
+
+\input{sections/99-refs}
+
+\end{document}
