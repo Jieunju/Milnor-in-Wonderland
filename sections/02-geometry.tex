@@ -55,6 +55,35 @@ $A\colon V\to V^{\perp}$，令
 \[
   \Gamma_A=\{\,v+A(v):v\in V\,\}.
 \]
+
+\begin{center}
+\begin{minipage}{0.94\textwidth}
+\centering
+\begin{tikzpicture}[scale=1.15,>=Stealth,line join=round,line cap=round]
+  % V：水平面（图中以其截线表示）
+  \fill[black!6] (-0.3,-0.13) rectangle (6.3,0.13);
+  \draw[thick] (0,0) -- (6.1,0) node[right] {$V$};
+  % V^\perp：竖直方向
+  \draw[thick,->] (0,0) -- (0,3.3) node[above] {$V^{\perp}$};
+  % 原点
+  \fill (0,0) circle (1.3pt) node[below left] {$0$};
+  % Gamma_A：A 的图像
+  \draw[thick] (0,0) -- (5.7,2.55) node[right] {$\Gamma_A$};
+  % 取一点 v
+  \coordinate (vb) at (3.5,0);
+  \coordinate (vt) at (3.5,1.565);
+  \draw[dashed,thin] (0,1.565) -- (vt);
+  \draw[->,very thick] (vb) -- (vt) node[midway,left=4pt] {$A(v)$};
+  \fill (vb) circle (1.4pt) node[below] {$v$};
+  \fill (vt) circle (1.4pt) node[below right=1pt] {$v+A(v)$};
+\end{tikzpicture}
+\captionof{figure}{图像坐标 $A\mapsto\Gamma_A$。$V$ 为水平面（图中取其截线），
+$V^{\perp}$ 为竖直方向，$\Gamma_A$ 是 $A$ 的图像。$A(v)$ 是点 $v$ 到
+$\Gamma_A$ 的竖直位移；$A\mapsto\Gamma_A$ 因此给出
+$T_V\GK\cong\Hom(V,V^{\perp})$。}
+\label{fig:graph-coords}
+\end{minipage}
+\end{center}
 则 $A\mapsto\Gamma_A$ 是 $V$ 的邻域的坐标，故
 $T_V\GK\cong\Hom(V,V^{\perp})$。这些纤维同构随 $V$ 光滑变化，得到第一式；第二式
 是 $\Hom(E,F)\cong E^{*}\otimes F$ 的自然同构。
@@ -74,7 +103,7 @@ $T\GK\cong\cG_k^{*}\otimes\cGc_k$ 直接推出。
 \end{proof}
 
 \begin{remark}
-$\cGc_k$ 是正交补丛，而不是切丛的法丛；其 Stiefel--Whitney 类不能与 $T\GK$ 的
-共轭类混用。关系 \eqref{eq:stable-tangent} 是第 \ref{sec:classical} 章一切特征类
-计算的出发点。
+关系 \eqref{eq:stable-tangent} 是第 \ref{sec:classical} 章一切特征类计算的出发点；
+它与命题 \ref{prop:tangent} 的局部形式互为补充：前者稳定、便于求总类，后者逐点、
+便于看清 $\cGc_k$ 的几何来源。
 \end{remark}

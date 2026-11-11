@@ -35,7 +35,7 @@ xelatex main.tex
 xelatex main.tex
 ```
 
-需要 **XeLaTeX + ctex**（TeX Live 2026，`E:\texlive\2026`）。当前状态：19 页，
+需要 **XeLaTeX + ctex**（TeX Live 2026，`E:\texlive\2026`）。当前状态：20 页，
 0 error，0 overfull hbox，0 undefined reference。
 
 ## 编辑约定
