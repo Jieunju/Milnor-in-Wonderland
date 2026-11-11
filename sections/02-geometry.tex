@@ -1,0 +1,80 @@
+% ============================================================================
+%  2  Grassmann 流形的几何结构
+% ============================================================================
+\section{Grassmann 流形的几何结构}
+\label{sec:geometry}
+
+\subsection{定义与典范丛}
+
+记 $\GK=G_k(\R^{k+n})$，即 $\R^{k+n}$ 中所有无向 $k$ 维线性子空间组成的
+Grassmann 流形；其上的点 $V\in\GK$ 本身就是一个 $k$ 维子空间。典范丛
+$\cG_k\to\GK$ 定义为
+\begin{equation}
+  (\cG_k)_V=V .
+  \label{eq:tautological}
+\end{equation}
+
+选定标准内积后，$V$ 有正交补 $V^{\perp}$，由此得到秩为 $n$ 的正交补丛
+$\cGc_k$，其纤维为 $(\cGc_k)_V=V^{\perp}$。于是每个纤维都有正交直和分解
+$V\oplus V^{\perp}=\R^{k+n}$，且随 $V$ 光滑变化，从而得到稳定平凡化
+\begin{equation}
+  \cG_k\oplus\cGc_k\cong\eps^{k+n}.
+  \label{eq:splitting}
+\end{equation}
+这一关系是后续全部特征类计算的起点。若记 $w_i=w_i(\cG_k)$，则由 Whitney
+乘积公式可得
+\begin{equation}
+  w(\cG_k)\,w(\cGc_k)=1,
+  \qquad\text{即}\qquad
+  w(\cGc_k)=w(\cG_k)^{-1}.
+  \label{eq:whitney-inverse}
+\end{equation}
+这里的逆元是在 $H^*(\GK;\Ftwo)$ 的增次理想中取形式逆，并最终在 Grassmann
+流形的真实上同调环中加以解释。
+
+\subsection{正交补丛与稳定平凡化}
+
+正交补丛并不是切丛。前者的秩为 $n$，而后者的秩为 $kn$；二者通过 $\Hom$ 丛相
+联系。特别地，$w_i(\cGc_k)$ 与切丛的共轭类 $\wbar_i(T\GK)$ 一般并不是同一个类，
+因此不能共用同一条横线记号。
+
+\subsection{切丛公式}
+
+\begin{proposition}[Grassmann 流形的切丛公式]
+\label{prop:tangent}
+存在自然的实向量丛同构
+\begin{equation}
+  T\GK\cong\Hom(\cG_k,\cGc_k)\cong\cG_k^{*}\otimes\cGc_k .
+  \label{eq:tangent}
+\end{equation}
+\end{proposition}
+
+\begin{proof}[证明（个人复现）]
+固定 $V\in\GK$，取 $V^{\perp}$ 作为补空间。对充分小的线性映射
+$A\colon V\to V^{\perp}$，令
+\[
+  \Gamma_A=\{\,v+A(v):v\in V\,\}.
+\]
+则 $A\mapsto\Gamma_A$ 是 $V$ 的邻域的坐标，故
+$T_V\GK\cong\Hom(V,V^{\perp})$。这些纤维同构随 $V$ 光滑变化，得到第一式；第二式
+是 $\Hom(E,F)\cong E^{*}\otimes F$ 的自然同构。
+
+Hsiang--Szczarba \cite{HsiangSzczarba1964} 的原始证明给出了同一公式的稳定版本：
+若 $\xi$ 为典范丛，则
+\[
+  \tau(G_{N-k,k})\oplus(\xi\otimes\xi^{*})\cong N\xi_{\mathbb{R}} .
+\]
+在实情形用度量识别 $\xi^{*}\cong\xi$，置 $N=n+k$ 即得
+\begin{equation}
+  T\GK\oplus(\cG_k\otimes\cG_k)\cong(n+k)\,\cG_k .
+  \label{eq:stable-tangent}
+\end{equation}
+这也可由 $\cG_k\oplus\cGc_k\cong\eps^{n+k}$ 与
+$T\GK\cong\cG_k^{*}\otimes\cGc_k$ 直接推出。
+\end{proof}
+
+\begin{remark}
+$\cGc_k$ 是正交补丛，而不是切丛的法丛；其 Stiefel--Whitney 类不能与 $T\GK$ 的
+共轭类混用。关系 \eqref{eq:stable-tangent} 是第 \ref{sec:classical} 章一切特征类
+计算的出发点。
+\end{remark}

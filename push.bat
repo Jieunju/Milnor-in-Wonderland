@@ -1,43 +1,66 @@
 @echo off
-REM One-click publish to https://github.com/Jieunju/Milnor-in-Wonderland
-REM Requires: Git for Windows installed and on PATH.
+REM Publish this folder to https://github.com/Jieunju/Milnor-in-Wonderland
+REM Safe to run repeatedly. Works even if the remote already has a web-upload commit.
 setlocal
 cd /d "%~dp0"
 
+REM --- 1. locate git ---
+set "GIT=git"
 where git >nul 2>&1
 if errorlevel 1 (
-  echo.
-  echo [FAIL] git not found. Install Git for Windows first:
-  echo        https://git-scm.com/download/win
-  echo        Then reopen the terminal and run this file again.
-  exit /b 1
+  if exist "D:\Git\cmd\git.exe" (
+    set "GIT=D:\Git\cmd\git.exe"
+  ) else (
+    echo [FAIL] git not found. Install Git for Windows or set D:\Git\cmd\git.exe
+    exit /b 1
+  )
 )
+"%GIT%" --version
 
-git config user.name  >nul 2>&1 || git config user.name  "Jieunju"
-git config user.email >nul 2>&1 || git config user.email "humble2001@berkeley.edu"
+REM --- 2. identity ---
+"%GIT%" config user.name  >nul 2>&1 || "%GIT%" config user.name  "Jieunju"
+"%GIT%" config user.email >nul 2>&1 || "%GIT%" config user.email "334226582+Jieunju@users.noreply.github.com"
 
+REM --- 3. repo + remote ---
 if not exist ".git" (
-  git init
-  git branch -M main
+  "%GIT%" init
+  "%GIT%" branch -M main
 )
-
-git remote get-url origin >nul 2>&1
+"%GIT%" remote get-url origin >nul 2>&1
 if errorlevel 1 (
-  git remote add origin https://github.com/Jieunju/Milnor-in-Wonderland.git
+  "%GIT%" remote add origin https://github.com/Jieunju/Milnor-in-Wonderland.git
 ) else (
-  git remote set-url origin https://github.com/Jieunju/Milnor-in-Wonderland.git
+  "%GIT%" remote set-url origin https://github.com/Jieunju/Milnor-in-Wonderland.git
 )
 
-git add -A
-git commit -m "Add Grassmannian non-embedding paper (LaTeX source + PDF)"
-git push -u origin main
+REM --- 4. align with remote if it already has commits ---
+"%GIT%" fetch origin main >nul 2>&1
+if not errorlevel 1 (
+  "%GIT%" rev-parse --verify origin/main >nul 2>&1
+  if not errorlevel 1 (
+    echo [1/3] aligning with origin/main ...
+    "%GIT%" reset --soft origin/main
+  )
+)
 
+REM --- 5. stage and commit ---
+"%GIT%" add -A
+"%GIT%" diff --cached --quiet
 if errorlevel 1 (
-  echo.
-  echo [FAIL] push failed. Sign in to GitHub when prompted, or check the error above.
-  exit /b 2
+  "%GIT%" commit -m "Add full LaTeX sources (sections/) and git attributes" || goto :fail
+) else (
+  echo [2/3] nothing new to commit
 )
+
+REM --- 6. push ---
+echo [3/3] pushing ...
+"%GIT%" push -u origin main || goto :fail
 
 echo.
-echo [OK] pushed to https://github.com/Jieunju/Milnor-in-Wonderland
+echo [OK] https://github.com/Jieunju/Milnor-in-Wonderland
 exit /b 0
+
+:fail
+echo.
+echo [FAIL] see the message above. If it asks for login, choose "Sign in with your browser".
+exit /b 2

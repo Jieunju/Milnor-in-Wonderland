@@ -1,0 +1,89 @@
+% ============================================================================
+%  记号与约定（全局记号表；不改动任何数学内容，只汇总正文已定义的符号）
+% ============================================================================
+\section*{记号与约定}
+\addcontentsline{toc}{section}{记号与约定}
+\markboth{记号与约定}{记号与约定}
+
+本文自始至终使用下列记号。表中每一项在正文对应小节均有定义，此处仅作查阅之用；
+若某项在个别文献中含义不同，引用时另行注明。
+
+\begin{center}
+\small
+\renewcommand{\arraystretch}{1.35}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{4.3cm}
+    >{\raggedright\arraybackslash}X@{}}
+\toprule
+记号 & 含义 \\
+\midrule
+$\GK=G_k(\R^{k+n})$ &
+$\R^{k+n}$ 中所有 $k$ 维线性子空间构成的 Grassmann 流形，$\dim\GK=kn$；
+$k=1$ 时即 $\R P^{n}$。此为非定向（无向）Grassmann 流形 \\
+\addlinespace[1pt]
+$\cG_k,\ \cGc_k$ &
+典范 $k$ 丛及其秩为 $n$ 的正交补丛，满足
+$\cG_k\oplus\cGc_k\cong\eps^{k+n}$；$\cGc_k$ 不是切丛 \\
+\addlinespace[1pt]
+$\eps^{r}$ &
+秩为 $r$ 的平凡实向量丛 \\
+\addlinespace[1pt]
+$w_i(E),\ w(E)$ &
+向量丛 $E$ 的第 $i$ 个与总的 Stiefel--Whitney 类，取值于
+$H^{*}(X;\Ftwo)$；约定 $w_0=1$，$i>\operatorname{rank}E$ 时 $w_i=0$ \\
+\addlinespace[1pt]
+$\wbar_j(E),\ \wbar(E)$ &
+$E$ 的共轭 Stiefel--Whitney 类，即总类之逆 $w(E)^{-1}$ 的次数 $j$ 部分；
+仅用于「总类之逆」，不用于指正交补丛自身的类 \\
+\addlinespace[1pt]
+$v_j$ &
+正交补丛自身类的简写：$v_j=w_j(\cGc_k)$。仅在需要与 $\wbar_j$ 明确区分的
+局部（如例 5.1、定理 5.1）使用 \\
+\addlinespace[1pt]
+$M^{d},\ TM,\ \nu$ &
+闭光滑 $d$ 维流形、其切丛，以及一个嵌入 $M\emb\R^{d+c}$ 的法丛；
+恒有 $TM\oplus\nu\cong\eps^{d+c}$ 与 $w(\nu)=\wbar(TM)$ \\
+\addlinespace[1pt]
+$d,\ c,\ N$ &
+流形维数 $d$、余维 $c=N-d$ 与环境维数 $N=d+c$ \\
+\addlinespace[1pt]
+$\delta(M)$ &
+$\max\{\,j:\ \wbar_j(TM)\neq0\,\}$；若所有 $\wbar_j$ 均为零则约定
+$\delta(M)=0$ \\
+\addlinespace[1pt]
+$s=2^{r}$ &
+二进制幂。在第 \ref{sec:classical} 章中按各定理的参数假设分别指定 \\
+\addlinespace[1pt]
+$p,\ m$ &
+第 \ref{sec:classical} 章的两个参数：$p=s-n$（用于 4.1 节与 4.2 节的下支）、
+$m=2s-n$（仅用于 4.2 节的上支）。原文在 4.2 节也用 $p$ 表示 $2s-n$，
+与 4.1 节的 $p=s-n$ 冲突，本文改用 $m$ 以避免歧义 \\
+\addlinespace[1pt]
+$e_1,\dots,e_{n+k}$ &
+完全旗流形 $\Flag(\R^{n+k})$ 上的一维生成类，见第 \ref{sec:hiller1980} 节 \\
+\addlinespace[1pt]
+$\sigma_i$ &
+初等对称函数；旗流形投影下的拉回满足
+$\pi^{*}(w_i)=\sigma_i(e_1,\dots,e_k)$ \\
+\addlinespace[1pt]
+$\pi$ &
+完全旗流形到 Grassmann 流形的投影
+$\Flag(\R^{n+k})\to\GK$。Hiller（1980）原文记作 $\rho$，本文统一为 $\pi$ \\
+\addlinespace[1pt]
+$\operatorname{height}(w_1)$ &
+$w_1$ 的最大非零幂次，其取值见第 \ref{sec:stong} 节 \\
+\addlinespace[1pt]
+$\imdim(M)$ &
+浸入维数（immersion dimension）：使 $M$ 能光滑浸入 $\R^{j}$ 的最小 $j$ \\
+\addlinespace[1pt]
+$\embdim(M)$ &
+嵌入维数（embedding dimension）：使 $M$ 能光滑嵌入 $\R^{j}$ 的最小 $j$ \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\begin{remark*}[记号上的两处提醒]
+其一，$w_i(\cGc_k)$ 与 $\wbar_i(T\GK)$ 一般不是同一个类，全文不得共用同一条横线
+记号（见 \textsection2.2）。其二，符号 $p$ 与 $q$ 是\emph{分节局部}的：第 4.1 节
+用 $p=s-n$，第 4.2 节用 $p=2s-n$ 与 $q=s-n$；引用时须回到该节的定义，不可跨节
+沿用。
+\end{remark*}

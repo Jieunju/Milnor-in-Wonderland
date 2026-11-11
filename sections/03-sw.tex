@@ -1,0 +1,86 @@
+% ============================================================================
+%  3  Stiefel--Whitney 类与欧氏嵌入障碍
+% ============================================================================
+\section{Stiefel--Whitney 类与欧氏嵌入障碍}
+\label{sec:sw}
+
+\subsection{Stiefel--Whitney 类与 Whitney 乘积公式}
+
+对实向量丛 $E\to X$，其总 Stiefel--Whitney 类定义为
+\begin{equation*}
+  w(E)=1+w_1(E)+w_2(E)+\cdots,
+\end{equation*}
+其中 $w_i(E)\in H^{i}(X;\Ftwo)$，并约定 $w_0(E)=1$，且当
+$i>\operatorname{rank}E$ 时 $w_i(E)=0$。Whitney 乘积公式为
+$w(E\oplus F)=w(E)w(F)$；若 $E\oplus F\cong\eps^{r}$，则 $w(F)=w(E)^{-1}$。
+
+我们把 $w(E)^{-1}$ 的次数 $j$ 部分记作 $\wbar_j(E)$，并称 $\wbar(E)$ 为 $E$ 的
+\emph{共轭 Stiefel--Whitney 类}。若 $w(E)=1+w_1+w_2+\cdots$，则在 $\Ftwo$ 上
+递推得到
+\begin{equation*}
+  \wbar_0=1,
+  \qquad
+  \wbar_j=\sum_{i=1}^{j} w_i\,\wbar_{j-i}\quad (j\ge 1).
+\end{equation*}
+这里的共轭类是向量丛总类的逆，它与正交补丛自身的 Stiefel--Whitney 类不是同一个
+对象：后者在第 \ref{sec:classical} 章记作 $v_j$。
+
+\subsection{法丛与切丛的特征类关系}
+
+设 $M^{d}$ 是闭光滑流形，并有光滑嵌入 $f\colon M\emb\R^{d+c}$。管状邻域定理给出
+$M$ 上秩为 $c$ 的法丛 $\nu_f$，且
+\begin{equation*}
+  TM\oplus\nu_f\cong\eps^{d+c},
+  \qquad
+  w(\nu_f)=w(TM)^{-1}=\wbar(TM).
+\end{equation*}
+于是，秩为 $c$ 的向量丛在次数 $j>c$ 上自动没有 Stiefel--Whitney 类，即
+\begin{equation*}
+  \wbar_j(TM)=w_j(\nu_f)=0\quad (j>c).
+\end{equation*}
+换言之，若 $\wbar_j(TM)\neq0$，则 $c\ge j$。这只是一般的\emph{法丛秩障碍}；
+它没有排除 $c=j$ 的临界情形。
+
+\subsection{共轭 Stiefel--Whitney 类给出的嵌入障碍}
+
+\begin{theorem}[法丛秩障碍]\label{thm:embedding-obstruction}
+设闭光滑 $d$ 维流形 $M$ 嵌入 $\R^{d+c}$，且 $\wbar_j(TM)\neq0$，则 $c\ge j$。
+特别地，若
+\begin{equation}
+  \delta(M)=\max\{\,j:\ \wbar_j(TM)\neq0\,\}>0,
+  \label{eq:delta}
+\end{equation}
+则 $\embdim(M)\ge d+\delta(M)$。
+\end{theorem}
+
+\begin{proof}[证明（个人复现）]
+由 $TM\oplus\nu\cong\eps^{d+c}$ 得 $w(\nu)=w(TM)^{-1}$。$\nu$ 的秩为 $c$，故
+$w_j(\nu)=0$（$j>c$）。于是 $\wbar_j(TM)=w_j(\nu)\neq0$ 迫使 $j\le c$。
+\end{proof}
+
+\begin{theorem}[欧氏嵌入的临界次数判据]\label{thm:critical}
+设闭光滑 $d$ 维流形 $M$ 嵌入 $\R^{d+c}$ 且 $c>0$。则
+\begin{equation}
+  \wbar_i(TM)=0\qquad(i\ge c).
+  \label{eq:critical}
+\end{equation}
+因而当 $\wbar_j(TM)\neq0$ 时，实际上有 $c\ge j+1$，环境维数至少为 $d+j+1$。
+\end{theorem}
+
+\begin{proof}[证明说明]
+端点上的加强与秩截断无关，它来自 Thom 类。按 Milnor--Stasheff
+\cite[\S11]{MilnorStasheff} 的论述，设
+$U\in H^{c}(\R^{d+c},\R^{d+c}\setminus M;\Ftwo)$ 为法丛的 Thom 类。长正合序列中
+$H^{c}(\R^{d+c};\Ftwo)=0$（因 $c>0$），故 $U$ 所对应的绝对类的限制为零；而 Thom
+自相交公式把该限制识别为 $w_c(\nu)$。于是 $w_c(\nu)=0$，高于 $c$ 的分量又由秩
+截断为零，故 $w_i(\nu)=\wbar_i(TM)=0$ 对一切 $i\ge c$ 成立。模 $2$ 的论证不需要
+定向假设。Oproiu 在文献 \cite[p.~177]{Oproiu1977} 中引用这一判据，并在第
+181--184 页用排除临界环境维数。
+\end{proof}
+
+\begin{remark}[两个定理的逻辑地位]
+定理 \ref{thm:embedding-obstruction} 与定理 \ref{thm:critical} 都是嵌入的
+\emph{必要}条件，而非充分条件：共轭类消失并不能构造嵌入。另一方面，非浸入的
+下界可以转移为嵌入的下界（嵌入必为浸入），但浸入的上界、存在性与精确值都不作此
+转移。
+\end{remark}

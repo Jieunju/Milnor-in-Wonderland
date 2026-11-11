@@ -1,0 +1,349 @@
+% ============================================================================
+%  5  计算实例与讨论
+%  记号：$v_j=w_j(\cGc_k)$ 专指正交补丛自身的类；$\wbar_j$ 专指总类之逆。
+% ============================================================================
+\section{计算实例与讨论}
+
+\subsection{切丛类的计算方法}
+
+本文的计算统一在真实的上同调环
+\begin{equation*}
+  H^{*}(\GK;\Ftwo)\cong\Ftwo[w_1,\dots,w_k]/I_{k,n}
+\end{equation*}
+中进行，其中 $I_{k,n}$ 由 $w(\cG_k)\,w(\cGc_k)=1$ 中次数高于补丛秩的分量生成。
+计算时先在自由多项式环中递推求出总类或其逆总类，随后必须按 $I_{k,n}$ 约化；
+自由多项式中的非零并不等于上同调环中的非零。
+
+由 \eqref{eq:stable-tangent} 与度量同构，
+\begin{equation*}
+  \wbar(T\GK)=w(\cG_k\otimes\cG_k)\,w(\cG_k)^{-(n+k)}
+\end{equation*}
+是在商环中成立的等式。若 $x_1,\dots,x_k$ 是 $\cG_k$ 的形式 Stiefel--Whitney 根，
+则
+\begin{equation*}
+  w(\cG_k\otimes\cG_k)=\prod_{i<j}\bigl(1+(x_i+x_j)^{2}\bigr),
+\end{equation*}
+因为 $i=j$ 时对应的根为 $x_i+x_i=0$，而每个 $i<j$ 的根出现两次，给出平方因子。
+实际计算时仍须把得到的对称多项式写回 $w_1,\dots,w_k$，并在
+$H^{*}(\GK;\Ftwo)$ 中约化。
+
+\subsection{代表性参数实例}
+
+\begin{example}[$G_{2,2}=G_2(\R^{4})$]\label{ex:G22}
+令 $w_i=w_i(\cG_2)$，并以 $v_j=w_j(\cGc_2)$ 记正交补丛自身的类。由补丛秩为 $2$，
+\begin{equation*}
+  (1+w_1+w_2)\,(1+v_1+v_2+v_3+\cdots)=1,
+\end{equation*}
+且 $v_j=0$ 对 $j>2$ 成立。形式递推给出 $v_1=w_1$、$v_2=w_1^{2}+w_2$；而
+$v_3=w_1^{3}$ 恰是补丛秩为 $2$ 所强加的关系，即商环中 $w_1^{3}=0$，故 $v_3=0$。
+于是
+\begin{equation*}
+  I_{2,2}=\bigl(w_1^{3},\ w_1^{4}+w_1^{2}w_2+w_2^{2}\bigr).
+\end{equation*}
+另一方面，\eqref{eq:stable-tangent} 给出
+$TG_{2,2}\oplus(\cG_2\otimes\cG_2)\cong4\cG_2$。在模 $2$ 特征类中
+$w(\cG_2\otimes\cG_2)=(1+w_1)^{2}=1+w_1^{2}$，而
+\begin{equation*}
+  (1+w_1+w_2)^{4}=1+w_1^{4}+w_2^{4}=1
+\end{equation*}
+在上述商环中成立（次数超过 $\dim G_{2,2}=4$ 的项自动为零，且关系消去
+$w_1^{4}$）。故 $w(TG_{2,2})=1+w_1^{2}$，$\wbar(TG_{2,2})=1+w_1^{2}$。
+
+在标准单项式基中 $w_1^{2}\neq0$，所以 $\wbar_2(TG_{2,2})\neq0$，并由各高次类
+消失得 $\delta(G_{2,2})=2$。定理 \ref{thm:embedding-obstruction} 给出法丛余维
+$c\ge2$，从而 $G_{2,2}$ 不能嵌入 $\R^{5}$。这里只用到秩截断；Oproiu 定理
+\ref{thm:oproiu-G2} 对 $s=4,n=2$ 还用定理 \ref{thm:critical} 排除了 $\R^{6}$。
+\end{example}
+
+\subsection{固定 $k$ 时的数值现象}
+
+本文核验了 Hiller--Stong 原文第 4 节的命题 4.1、其后未编号的 \emph{Corollary}、
+命题 4.2 与命题 4.3。原文并未给出「Corollary 4.1」这一编号，因此本文不使用该
+名称。准确的说法是：当 $k\le n=2^{s}$ 时，该 \emph{Corollary} 给出
+\begin{equation*}
+  \binom{2^{s}+k}{2}\ \ge\ \imdim\bigl(G_k(\R^{2^{s}+k})\bigr)\ \ge\
+  \binom{2^{s}+k}{2}-\binom{2^{s}-k}{2}=k\,(2^{s+1}-1),
+\end{equation*}
+而 Whitney 型估计给出 $\imdim\le2^{s+1}k-1$。两个上界一般不同，故不把它们写成
+同一个「双侧夹逼」。命题 4.2 与 4.3 分别处理 $n=2^{s}-1$ 与 $n+k=2^{s+1}+1$ 的
+参数情形。这里的 $\imdim$ 始终是浸入维数，不能把这些「平台」现象转写为嵌入维数
+结论。本文所列固定 $k$ 的计算均标为文献下界或个人复现，不存在完整证明的模式不外推
+为新定理。
+
+\subsection{特征类障碍的方法边界}
+
+本文实际使用两种必要条件。第一种是\emph{法丛秩条件}：若 $M^{d}$ 嵌入
+$\R^{d+c}$，则 $w_j(\nu)=0$ 对 $j>c$，从而 $\wbar_j(TM)\neq0$ 只推出 $c\ge j$。
+这一论证只依赖 $TM\oplus\nu\cong\eps^{d+c}$ 与向量丛的秩，不需要知道法丛的具体
+几何构造。第二种是定理 \ref{thm:critical} 的临界次数判据，它把结论加强为
+$c\ge j+1$。
+
+两种条件都不是充分条件：共轭类全部消失只说明这一组模 $2$ 特征类不再排除某个
+余维，它既不能构造嵌入，也不能保证候选浸入的全局单射性。因此 Hiller--Stong 的
+浸入维数下界必须留在浸入问题的语境中。
+
+此外，「形式非零」也不是充分证据。对 $\GK$，必须先在
+$H^{*}(\GK;\Ftwo)$ 中约化，再用 Schubert 类或 Gr\"obner 标准单项式判定非零性。
+Oproiu 的证明正是通过 Schubert 乘法确认关键项没有抵消。故本文把「公式推导」
+「商环中的非零性」「由非零性得到的排除」列为三个必须分别核查的步骤。
+
+\subsection{Oproiu 与 Hiller--Stong 的结果对照}
+
+下表只比较研究对象与逻辑地位，不把两篇论文的维数公式拼接成新的统一定理。设
+$d=\dim\GK=kn$，$c=N-d$ 为余维。
+
+\begin{table}[!htbp]
+\centering
+\footnotesize
+\renewcommand{\arraystretch}{1.18}
+\caption{Oproiu 与 Hiller--Stong 的研究对象及逻辑地位对照}
+\label{tab:comparison}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{2.45cm}
+    >{\raggedright\arraybackslash}p{2.95cm}
+    >{\raggedright\arraybackslash}X
+    >{\raggedright\arraybackslash}X
+    >{\raggedright\arraybackslash}p{2.45cm}@{}}
+\toprule
+来源与工具 & 研究对象 & 典型输入 & 直接得到的结论 & 本文中的定位 \\
+\midrule
+Oproiu（1977），定理 1--2 & embedding；定理 1 另列 immersion &
+$\wbar_j$ 的 Schubert 非零性；二进制参数分段 &
+排除指定的 $\R^{N}$，并在定理 1 中同时排除一个低一维的浸入环境 &
+第 \ref{sec:classical} 章的已核验非嵌入定理 \\
+\addlinespace[2pt]
+本文定理 \ref{thm:embedding-obstruction} & embedding &
+$TM\oplus\nu\cong\eps^{d+c}$ 与秩截断 &
+$\wbar_j\neq0\Rightarrow c\ge j$，即排除 $\R^{d+j-1}$ &
+一般法丛秩障碍；必要而非充分 \\
+\addlinespace[2pt]
+本文定理 \ref{thm:critical} & embedding &
+额外使用 $w_c(\nu)=0$（Thom 类） &
+$\wbar_j\neq0\Rightarrow c\ge j+1$，即排除 $\R^{d+j}$ &
+解释定理 \ref{thm:oproiu-G2} 的嵌入端点 \\
+\addlinespace[2pt]
+Hiller--Stong（1981） & immersion &
+稳定切丛、模 $2$ 特征类 & 给出 $\imdim$ 的下界或精确值 &
+第 4.3 节的浸入维数结果，不改写为 embedding \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+因此，不能仅凭「同一个共轭类出现于两篇论文」就比较两者的环境维数大小：Oproiu
+的结论依赖嵌入的临界次数条件，而 Hiller--Stong 的主对象是浸入维数。只有先固定
+研究对象、参数范围与余维定义，比较才有意义。
+
+\FloatBarrier
+
+\subsection{Hiller（1980）：上同调环、旗流形检测与递归约化}
+\label{sec:hiller1980}
+
+\begin{remark*}[文献核验状态]
+H.~L.~Hiller, \emph{On the Cohomology of Real Grassmanians}, Transactions of
+the American Mathematical Society \textbf{257} (1980), no.~2, 521--533,
+DOI: 10.1090/S0002-9947-1980-0552272-2 \cite{Hiller1980}。本文依据原始 PDF 核对
+原文第 521--533 页的编号结果。该文的研究对象是
+$H^{*}(G_k(\R^{n+k});\Ftwo)$ 中的 Schubert calculus、$w_1$ 的高度与
+Lusternik--Schnirelmann category；它提供非零性计算的上同调基础，本身不给出
+嵌入维数或浸入维数。
+\end{remark*}
+
+\paragraph{乘法公式的出处。}
+Oproiu 原文第 180 页引用 S.~S.~Chern 的 Schubert 乘法公式，并在引理 1--4 中给出
+本文所需的具体展开；Hiller--Stong \cite{HillerStong1981} 第 363--365 页给出完全
+旗流形投影、拉回单射、顶维单项式检测与法丛总类公式的可复核框架。本文把 Hiller
+（1980）定位为 Borel 商环与递归约化的直接来源，把 Oproiu 与 Hiller--Stong 定位为
+Schubert／旗流形非零性的核验来源。
+
+\begin{theorem}[Borel 表示，Hiller 原文 Theorem 1.1(i)]\label{thm:borel}
+令 $u_i=w_i(\cG_k)$，$v_j=w_j(\cGc_k)$，其中 $1\le i\le k$、$1\le j\le n$。则
+\begin{equation*}
+  H^{*}(\GK;\Ftwo)\cong
+  \Ftwo[u_1,\dots,u_k,v_1,\dots,v_n]\big/\,I_{k,n},
+\end{equation*}
+其中 $I_{k,n}$ 由 $(1+u_1+\cdots+u_k)(1+v_1+\cdots+v_n)=1$ 的齐次分量生成。
+Hiller 称 $v_j$ 为 universal bundle 的 normal Stiefel--Whitney classes；本文
+沿用记号 $v_j=w_j(\cGc_k)$。消去 $v_j$ 后得到只含 $u_1,\dots,u_k$ 的商环，这正是
+本文进行 Gr\"obner 约化与 Schubert 非零性判定时所用的真实上同调环。
+\end{theorem}
+
+\begin{theorem}[旗流形计算，Hiller 原文 \textsection2 与式 (2.1)]\label{thm:flag}
+对完全旗流形投影（Hiller 原文记作 $\rho$，本文统一记作 $\pi$）
+\begin{equation*}
+  \pi\colon\Flag(\R^{n+k})\longrightarrow \GK,
+\end{equation*}
+诱导映射 $\pi^{*}$ 在上同调上是单射。若 $e_1,\dots,e_{n+k}$ 是旗流形上的一维类，
+则
+\begin{equation*}
+  \pi^{*}(u_i)=\sigma_i(e_1,\dots,e_k),
+  \qquad
+  \pi^{*}(v_j)=\sigma_j(e_{k+1},\dots,e_{k+n}),
+\end{equation*}
+其中 $\sigma_i$ 表示初等对称函数。
+\end{theorem}
+
+Hiller 的证明把 Grassmann 流形上的关系转移到完全旗流形的 coinvariant ring 中；
+因此要证明某个类非零，可以先利用 $\pi^{*}$ 的单射性检查其拉回。这与
+Hiller--Stong 所使用的检测框架相互印证，也解释了 Oproiu 证明中 Schubert 非零性
+步骤的代数背景。
+
+\begin{proposition}[Hiller 原文 Proposition 2.2 的直接应用]\label{prop:hiller22}
+若 $n+k=2^{s}$，则在 $H^{*}(\GK;\Ftwo)$ 中 $u_1^{2^{s}}=0$。
+\end{proposition}
+
+\begin{proof}
+由定理 \ref{thm:flag}，$\pi^{*}(u_1)=e_1+\cdots+e_k$。在特征 $2$ 中 Frobenius
+恒等式给出 $\pi^{*}(u_1^{2^{s}})=e_1^{2^{s}}+\cdots+e_k^{2^{s}}$。Hiller 利用
+完全旗流形上对称函数理想的基本多项式关系说明右端属于该理想，故拉回为零；由于
+$\pi^{*}$ 单射，原类即为零。
+\end{proof}
+
+\paragraph{附录的递归约化。}
+Hiller 进一步消去 normal classes，得到只含 $u_1,\dots,u_k$ 的理想 $J(k,n)$。
+对 $k=2$，记两个递归关系为 $f_n=f_{1,n}$、$g_n=f_{2,n}$，附录给出
+\begin{equation*}
+  f_{n+1}=u_1f_n+g_n,
+  \qquad
+  g_{n+1}=u_2f_n,
+\end{equation*}
+并以 $f_n=g_n=0$ 生成 $J(2,n)$。特别地，附录 Proposition 5 证明：若
+$n=(2^{s}-1)+d$ 且 $0\le d<2^{s}$，则
+\begin{equation*}
+  u_2^{n}+u_1^{2(2^{s}-1)}u_2^{d}=0,
+  \qquad\text{且}\qquad
+  u_1^{2(2^{s}-1)}u_2^{d}\neq0;
+\end{equation*}
+附录 Proposition 6 还在同一参数范围下给出 $u_1^{2^{s+1}-1}=0$。
+
+\begin{remark}
+Hiller（1980）为第 5.1 节的商环表示、例 \ref{ex:G22} 的 Gr\"obner 基与第
+\ref{sec:stong} 节的旗流形非零性提供了直接出处。本文把 Hiller 的结果定位为上
+同调与计算工具；Oproiu 的非嵌入结论仍由 Oproiu 原文给出，Hiller--Stong 的结论仍
+严格属于 immersion。
+\end{remark}
+
+\subsection{Hiller 递归理想与 $G_{2,n}$ 的小参数约化}
+\label{sec:recursion}
+
+本节把 Hiller（1980）的 Borel 商环递归与第 5.2 节的计算逐项对照，并补充
+$G_{2,3}$ 的手工约化。目标是核对计算机制，而不是提出新的 Gr\"obner 基结果；
+所有等式均在 $\Ftwo[u_1,u_2]$ 的上同调商环中解释。
+
+令 $u_i=w_i(\cG_2)$，以形式变量 $t$ 记
+\begin{equation*}
+  \frac{1}{1+u_1t+u_2t^{2}}=\sum_{r\ge0} f_r t^{r},
+  \qquad
+  f_0=1,\quad f_1=u_1,\quad f_r=u_1f_{r-1}+u_2f_{r-2}\ (r\ge2).
+\end{equation*}
+在 $G_{2,n}$ 上正交补丛的秩为 $n$，故 Borel 关系等价于令 $f_{n+1},f_{n+2}$ 为零，
+更高的 $f_r$ 随之归零。因此
+\begin{equation*}
+  H^{*}(G_{2,n};\Ftwo)\cong\Ftwo[u_1,u_2]\big/\,(f_{n+1},f_{n+2}),
+\end{equation*}
+这正是第 5.2 节由补丛高次类得到的关系理想。
+
+\begin{example}[$G_{2,2}$ 的逐项对照]\label{ex:G22-grobner}
+递推给出 $f_3=u_1^{3}$、$f_4=u_1^{4}+u_1^{2}u_2+u_2^{2}$，故
+$I_{2,2}=(u_1^{3},\,u_1^{4}+u_1^{2}u_2+u_2^{2})$。用分次字典序 $u_1>u_2$ 做模
+$2$ 的 Buchberger 约化：先以 $u_1^{3}$ 约去第二个生成元中的 $u_1^{4}$，得
+$u_1^{2}u_2+u_2^{2}$；继续处理相应的 $S$-多项式，得到
+\begin{equation*}
+  \mathcal{G}_{2,2}=\bigl\{\,u_1^{3},\ u_1^{2}u_2+u_2^{2},\ u_1u_2^{2},\
+  u_2^{3}\,\bigr\}.
+\end{equation*}
+标准单项式为 $1,u_1,u_1^{2},u_2,u_1u_2,u_2^{2}$，恰六个，与
+$G_2(\R^{4})$ 的模 $2$ Schubert 细胞数一致。特别地 $u_1^{2}$ 未被约化为零，这与
+例 \ref{ex:G22} 中 $\wbar_2(TG_{2,2})=u_1^{2}\neq0$ 一致。
+\end{example}
+
+\begin{example}[$G_{2,3}$ 的附加交叉检查]\label{ex:G23}
+继续递推得 $f_4=u_1^{4}+u_1^{2}u_2+u_2^{2}$、$f_5=u_1^{5}+u_1u_2^{2}$。由
+$u_1f_4+f_5$ 得 $u_1^{3}u_2$；随后的 $S$-多项式给出 $u_1^{2}u_2^{2}+u_2^{3}$、
+$u_1u_2^{3}$、$u_2^{4}$。因此可取
+\begin{equation*}
+  \mathcal{G}_{2,3}=\bigl\{\,u_1^{4}+u_1^{2}u_2+u_2^{2},\ u_1^{3}u_2,\
+  u_1^{2}u_2^{2}+u_2^{3},\ u_1u_2^{3},\ u_2^{4}\,\bigr\},
+\end{equation*}
+其首项为 $u_1^{4},u_1^{3}u_2,u_1^{2}u_2^{2},u_1u_2^{3},u_2^{4}$。故标准单项式总数
+为 $10=\binom{5}{2}$，与 $G_2(\R^{5})$ 的 Schubert 细胞数相符。
+\end{example}
+
+\begin{remark}
+递归理想把「补丛高次类消失」转化为可执行的商环约化；$G_{2,2}$ 是其最小实例，
+$G_{2,3}$ 显示了额外 $S$-多项式如何产生有限维标准单项式空间。上述计算属于个人
+复现，未声称新的 Gr\"obner 基定理。
+\end{remark}
+
+\subsection{Stong（1982）：旗流形评价与杯积的交叉核验}
+\label{sec:stong}
+
+\begin{remark*}[文献核验状态]
+R.~E. Stong, \emph{Cup Products in Grassmannians}, Topology and its
+Applications \textbf{13} (1982), 103--113 \cite{Stong1982}。本文直接读取原文，
+将其定位为上同调非零性与杯积的来源，不改写为欧氏嵌入定理。
+\end{remark*}
+
+Stong 使用 Borel 商环与完全旗流形投影
+$\pi\colon\Flag(\R^{n+k})\to G_k(\R^{n+k})$，证明 $\pi^{*}$ 单射，并以旗流形
+顶维评价检测 Grassmann 流形上的非零杯积。
+
+\paragraph{$w_1$ 的高度。}
+当 $2\le k\le n$ 且 $2^{s}<n+k\le2^{s+1}$ 时，Stong 给出
+\begin{equation*}
+  \operatorname{height}(w_1)=
+  \begin{cases}
+    2^{s+1}-2, & k=2,\ \text{或}\ k=3\ \text{且}\ n+k=2^{s}+1,\\[2pt]
+    2^{s+1}-1, & \text{其他情形}.
+  \end{cases}
+\end{equation*}
+这只是典范丛类的杯积信息，不能替代切丛共轭类 $\wbar_j(T\GK)$ 的计算。
+
+\paragraph{一个顶维杯积。}
+对 $s\ge2$，在 $G_3(\R^{2^{s}+2})=G_{3,2^{s}-1}$ 的顶维中有
+\begin{equation*}
+  w_1^{2^{s+1}-1}w_2^{2^{s-1}-1}\neq0,
+\end{equation*}
+其次数为 $3\cdot2^{s}-3$，恰等于流形维数；特别地 $s=2$ 给出 $G_{3,3}$ 中
+$w_1^{7}w_2\neq0$。这仍然是典范丛的杯积，与切丛的共轭类不是同一个对象。
+
+\paragraph{旗流形评价原则。}
+若 $e_1,\dots,e_{n+k}$ 是完全旗流形上的一维类，则
+$\pi^{*}(w_i)=\sigma_i(e_1,\dots,e_k)$ 且 $\pi^{*}$ 单射；旗流形顶维中，指数为
+$0,1,\dots,n+k-1$ 的单项式评价为 $1$。因此，把拉回后的类乘以互补单项式并检查
+顶维系数是否为 $1$，即可判定 Grassmann 流形上该类的非零性。这条原则与第
+\ref{sec:hiller1980} 节的技术一致，是全文判定「商环中非零」的统一依据。
+
+\paragraph{与切丛公式的联系。}
+Stong 还使用同 $k$ 的嵌入
+\begin{equation*}
+  G_k(\R^{n+k-1})\subset G_k(\R^{n+k}),
+\end{equation*}
+其法丛为 $\cG_k$（此处必须保持 $k$ 不变）。限制切丛的分解为
+$TG_k(\R^{n+k-1})\oplus\cG_k$，与第 \ref{sec:geometry} 节的公式相容。
+
+\subsection{$G_{3,6}$：边界分支的手工核对}
+\label{sec:G36}
+
+取 $n=6$，则 $s=8$ 且 $n=s-2$。因此 $\dim G_{3,6}=18$，Oproiu 的边界分支要求
+核对
+\begin{equation*}
+  \wbar_{s+3}(TG_{3,6})=\wbar_{11}(TG_{3,6})\neq0 .
+\end{equation*}
+引理 4 给出的关键 Schubert 基元素是 $(1,4,s-2)=(1,4,6)$，其次数为
+$1+4+6=11$，合法性为 $0\le1\le4\le6\le n=6$。
+
+为独立核对，令 $h_0=1$、$h_j=0$（$j<0$），并在 $G_{3,6}$ 中递推
+\begin{equation*}
+  h_j=w_1h_{j-1}+w_2h_{j-2}+w_3h_{j-3};
+\end{equation*}
+相应的 Borel 关系为 $h_7=h_8=h_9=0$。由 Jacobi--Trudi 行列式，该 Schubert 类可
+写成
+\begin{equation*}
+  (1,4,6)=(w_1h_4+h_5)\,h_6 .
+\end{equation*}
+在次数 $11$ 的单项式空间中，把 $h_7,h_8,h_9$ 的所有齐次倍数作为关系，模 $2$
+线性消元得到关系秩 $9$；再加入 $(w_1h_4+h_5)h_6$ 后秩为 $10$。因此该类在商环中
+确实非零——这一判定是在商环中完成的，不在自由多项式环中。
+
+由定理 \ref{thm:critical}，$\wbar_{11}\neq0$ 排除临界环境
+$\R^{18+11}=\R^{29}=\R^{4s-3}$；若只用秩截断，则只能排除余维小于 $11$ 的环境。
+两者相比，端点的额外作用一目了然。

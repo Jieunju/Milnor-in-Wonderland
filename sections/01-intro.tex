@@ -1,0 +1,44 @@
+% ============================================================================
+%  1  引言
+% ============================================================================
+\section{引言}
+
+\subsection{研究背景与问题}
+
+实 Grassmann 流形 $\GK=G_k(\R^{k+n})$ 由 $\R^{k+n}$ 中所有 $k$ 维线性子空间组成，
+是一个紧致光滑流形，其维数为 $kn$。当 $k=1$ 时，它退化为实射影空间
+$\R P^n$；因此，Grassmann 流形可以看作射影空间的一族高维推广。本文关注的问题是：
+给定 $\GK$，它能否光滑嵌入某个欧氏空间 $\R^N$？以及 Stiefel--Whitney 特征类能够
+对最小的 $N$ 给出怎样的必要下界？
+
+这里必须区分\emph{嵌入}与\emph{浸入}。光滑浸入只要求微分处处单射，而嵌入还要求
+映射在其像上是同胚；相应地，浸入维数可能严格小于嵌入维数。有鉴于此，本文引用
+浸入结果时始终标明其对象为 immersion，引用嵌入结果时则写作 embedding。
+
+特征类方法的基本机制如下。若闭的 $d$ 维流形 $M$ 嵌入 $\R^{d+c}$，则其法丛 $\nu$
+为秩 $c$ 的实向量丛，并满足
+\begin{equation}
+  TM\oplus\nu\cong\eps^{d+c}.
+  \label{eq:stable-trivial}
+\end{equation}
+因此，法丛的总 Stiefel--Whitney 类等于切丛总类的乘法逆元。由于秩为 $c$ 的向量丛
+在次数大于 $c$ 时没有 Stiefel--Whitney 类，切丛的共轭类 $\wbar_j(TM)$ 的非零性
+便迫使 $c\ge j$。这是一种嵌入的\emph{必要}条件，而非充分条件：共轭类全部消失
+并不自动给出嵌入的构造。
+
+\subsection{报告范围与文献脉络}
+
+本文的理论主线是「典范丛——切丛——法丛——共轭 Stiefel--Whitney 类」。
+Hsiang--Szczarba 与 Lam 的切丛公式提供几何起点；Hiller、Hiller--Stong 与 Stong
+提供商环、旗流形与浸入维数的计算背景。第 \ref{sec:geometry} 节从典范丛
+$\cG_k$ 及其正交补丛出发，复现 Grassmann 流形的切丛公式；第 \ref{sec:sw} 节在
+$H^{*}(\GK;\Ftwo)$ 中建立法丛秩障碍与临界次数判据；第 \ref{sec:classical} 节再
+把这些工具与经典文献中的非嵌入和浸入结果相对照。具体而言，Oproiu 的工作是
+$G_{2,n}$、$G_{3,n}$ 非嵌入问题的重要来源，而 Hiller--Stong 的论文明确研究
+immersion dimension，并给出 Lam 上界在若干参数附近的精确性以及更一般的
+Stiefel--Whitney 下界。
+
+本文已直接读取并核对 Lam（1975）、Hsiang--Szczarba（1964）、Hiller（1980）、
+Hiller--Stong（1981）、Stong（1982）与 Oproiu（1977）的原文。Oproiu 的定理 1、
+定理 2、公式 (1)--(6) 及其证明中的关键非零性计算均按 PDF 逐页核对；因此本文关于
+$G_{2,n}$、$G_{3,n}$ 的参数范围与嵌入结论不再仅依赖 Hiller--Stong 的二手转述。

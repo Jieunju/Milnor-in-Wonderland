@@ -1,0 +1,190 @@
+% ============================================================================
+%  4  Grassmann 流形的经典非嵌入与浸入结果
+%  记号约定（本文统一）：$p=s-n$ 用于 4.1 与 4.2 的下支，$m=2s-n$ 仅用于 4.2 的上支。
+%  原文 4.2 用 $p=2s-n$、$q=s-n$，与 4.1 的 $p=s-n$ 冲突，故改写如上。
+% ============================================================================
+\section{Grassmann 流形的经典非嵌入与浸入结果}
+\label{sec:classical}
+
+\subsection{Oproiu 关于 $G_{2,n}$ 的结果}
+
+\begin{theorem}[Oproiu，原文定理 1]\label{thm:oproiu-G2}
+除原文排除的低维情形 $G_{2,1}\cong\R P^{2}$ 外，令 $s=2^{r}$ 为严格大于 $n$ 的
+最小二进制幂，即 $2^{r-1}\le n<s$。
+\begin{enumerate}[label=(\roman*),leftmargin=2.2em]
+  \item 若 $n\neq s-1$，则
+        \[
+          G_{2,n}\nemb\R^{2s-2},
+          \qquad
+          G_{2,n}\not\imm\R^{2s-3};
+        \]
+  \item 若 $n=s-1$，则
+        \[
+          G_{2,s-1}\nemb\R^{3s-2},
+          \qquad
+          G_{2,s-1}\not\imm\R^{3s-3}.
+        \]
+\end{enumerate}
+\end{theorem}
+
+原文还给出相应的 Whitney 型正结果；以下只讨论非嵌入的证明。
+
+\begin{proof}[证明复现]
+设 $w=1+w_1+w_2=w(\cG_2)$。由 \eqref{eq:stable-tangent} 与
+$w(\cG_2\otimes\cG_2)=(1+w_1)^{2}$ 得
+\begin{equation*}
+  w(TG_{2,n})\,(1+w_1)^{2}=w^{n+2},
+  \qquad
+  \wbar(TG_{2,n})=(1+w_1)^{2}\,w^{-(n+2)} .
+\end{equation*}
+因为 $w^{2s}=1$（其所有正次数分量的次数都超过 $\dim G_{2,n}=2n$），所以
+\begin{equation}
+  \wbar(TG_{2,n})=(1+w_1)^{2}\,w^{2s-n-2}. \label{eq:wbar-G2}
+\end{equation}
+这里的等式在真实上同调商环中成立。
+
+设 $n\le s-2$。Oproiu 的 Schubert 计算给出 $w^{s}=1$；令 $p=s-n\ge2$，则
+\begin{equation*}
+  \wbar=(1+w_1)^{2}w^{p-2},
+  \qquad
+  \wbar_{2p-2}=w_1^{2}w_2^{p-2}.
+\end{equation*}
+Schubert 乘法给出
+\begin{equation}
+  w_1^{2}w_2^{p-2}=(p-1,p-1)+(p-2,p)\neq0. \label{eq:schubert-G2}
+\end{equation}
+两项是加法基中不同的 Schubert 类，且 $p\le s/2$ 保证它们合法，故真实商环中的非零
+性已经得到。此时 $d=2n=2s-2p$，非零次数为 $j=2p-2$，有 $d+j=2s-2$。由定理
+\ref{thm:critical} 排除临界嵌入 $\R^{2s-2}$；由定理
+\ref{thm:embedding-obstruction} 排除余维 $j-1$ 的浸入环境 $\R^{2s-3}$。
+
+边界 $n=s-1$ 不能代入 $p-2$。由 \eqref{eq:wbar-G2} 直接取指数 $s-1$，其次数 $s$
+部分满足
+\begin{equation}
+  \wbar_s=(1,s-1)+\text{其他 Schubert 类}\neq0. \label{eq:wbar-boundary}
+\end{equation}
+为核对系数，展开 $(1+w_1)^{2}w^{s-1}$：在 $w_1^{s-2i}w_2^{i}$ 中系数为
+$\binom{s+1-i}{i+1}$；$i=0$ 给出 $w_1^{s}$，其中 $(1,s-1)$ 的系数为 $1$；对
+$s\ge4$，$i=1$ 的系数 $\binom{s}{2}$ 为偶数，而 $i\ge2$ 的 Schubert 展开第一坐标
+至少为 $2$，故该基元素不被抵消。由于 $d=2s-2$，定理 \ref{thm:critical} 排除
+$\R^{3s-2}$，定理 \ref{thm:embedding-obstruction} 排除 $\R^{3s-3}$ 的浸入。
+\end{proof}
+
+\begin{remark}
+以上是 Oproiu 原文定理 1 的嵌入／浸入分层复现；其临界嵌入端点依赖定理
+\ref{thm:critical}，而不是单独的秩截断。
+\end{remark}
+
+\subsection{Oproiu 关于 $G_{3,n}$ 的结果}
+
+\begin{theorem}[Oproiu，原文定理 2]\label{thm:oproiu-G3}
+令 $s=2^{r}$ 满足 $2s<3n<4s$，且 $n\ge3$。则
+\begin{enumerate}[label=(\alph*),leftmargin=2.2em]
+  \item 当 $\tfrac23s<n\le s-3$ 时，$G_{3,n}\nemb\R^{3s-3}$；
+  \item 当 $n=s-2$ 时，$G_{3,s-2}\nemb\R^{4s-3}$；当 $n=s-1$ 且 $s\ge8$ 时，
+        $G_{3,s-1}\nemb\R^{5s-3}$；
+  \item 当 $s\le n<\tfrac43s$ 时，$G_{3,n}\nemb\R^{6s-3}$；
+  \item 另有独立的小参数结论 $G_{3,3}\nemb\R^{15}$。
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}[证明复现]
+令 $w=1+w_1+w_2+w_3$，并置
+\begin{equation*}
+  A=(1+w_1)(1+w_1+w_2)+w_3=1+w_1^{2}+w_2+w_1w_2+w_3 .
+\end{equation*}
+由 \eqref{eq:stable-tangent} 与张量积公式，
+\begin{equation*}
+  w(TG_{3,n})\,A^{2}=w^{n+3}.
+\end{equation*}
+由于 $4s>3n=\dim G_{3,n}$，有 $w^{4s}=1$，从而
+\begin{equation}
+  \wbar=A^{2}\,w^{4s-n-3}. \label{eq:wbar-G3}
+\end{equation}
+
+在上支 $s\le n<\tfrac43s$，Oproiu 的 Schubert 引理给出 $w^{2s}=1$。令
+$m=2s-n$，则
+\begin{equation*}
+  \wbar=A^{2}w^{m-3},
+  \qquad
+  \wbar_{3m-3}=(w_1^{2}w_2^{2}+w_3^{2})\,w_3^{m-3}.
+\end{equation*}
+其 Schubert 展开含四个不同的基元素
+\begin{equation*}
+  (m-3,m-1,m+1)+(m-3,m,m)+(m-2,m-2,m+1)+(m-1,m-1,m-1),
+\end{equation*}
+最后一项在 $m-1\le n$ 时合法，故该类非零。于是 $3n+(3m-3)=6s-3$，由定理
+\ref{thm:critical} 排除该环境维数。
+
+在下支 $\tfrac23s<n\le s-3$，令 $p=s-n\ge3$。此时 $w^{s}=1$，
+\eqref{eq:wbar-G3} 化为 $\wbar=A^{2}w^{p-3}$，同样得到
+\begin{equation*}
+  \wbar_{3p-3}\neq0,
+\end{equation*}
+且 $3n+(3p-3)=3s-3$，从而排除 $\R^{3s-3}$。两支的非零性均在 Schubert 加法基中
+判定，而不是自由多项式中的形式非零。
+
+边界由 Oproiu 的引理 4 单独处理：当 $n=s-2$ 时，$\wbar_{s+3}$ 的展开含关键基
+元素 $(1,4,s-2)$；当 $n=s-1$ 时，$\wbar_{2s}$ 的展开含 $(2,s-1,s-1)$。它们分别
+给出
+\begin{equation*}
+  3(s-2)+(s+3)=4s-3,
+  \qquad
+  3(s-1)+2s=5s-3 .
+\end{equation*}
+小参数 $G_{3,3}\nemb\R^{15}$ 是原文另行直接计算的结论，不由上述分支外推。
+\end{proof}
+
+\begin{remark}
+以上均为 Oproiu 已知定理的复现，不是新的非嵌入定理。$n=s-2$ 这一支的具体数值
+核对见第 \ref{sec:G36} 节。
+\end{remark}
+
+\subsection{Hiller--Stong 的浸入维数结果}
+
+本节只陈述与本文主线有关的浸入维数结论，并一律以「Hiller--Stong 命题 $m.n$」
+的形式引用原文编号，以免与本文自身的编号混淆。
+
+\paragraph{Lam 型上界。}
+对 $G_k(\R^{n+k})$，Lam 的估计为
+\begin{equation*}
+  \imdim\bigl(G_k(\R^{n+k})\bigr)\le\binom{n+k}{2},
+\end{equation*}
+其证明使用 $\cG_k\oplus\cG_n\cong(n+k)\eps$ 并施加第二外幂函子，得到切丛的一个
+平凡补，再由 Hirsch 的浸入定理得到浸入。这是 immersion 的上界。
+
+\paragraph{命题 4.1 与未编号的推论。}
+Hiller--Stong 命题 4.1：若 $k\le2^{s}\le n$ 且 $n+k\le2^{s+1}$，则
+\begin{equation*}
+  \imdim\bigl(G_k(\R^{n+k})\bigr)\ge k\,(2^{s+1}-1).
+\end{equation*}
+其后紧接一条未编号的 \emph{Corollary}：当 $n=2^{s}$ 时，
+\begin{equation*}
+  \binom{2^{s}+k}{2}\ \ge\ \imdim\bigl(G_k(\R^{2^{s}+k})\bigr)\ \ge\
+  \binom{2^{s}+k}{2}-\binom{2^{s}-k}{2}=k\,(2^{s+1}-1).
+\end{equation*}
+另一方面，Whitney 型估计给出 $\imdim\le2\dim M-1$，即
+$\imdim(G_k(\R^{2^{s}+k}))\le2^{s+1}k-1$。这一上界与上式的左端
+$\binom{2^{s}+k}{2}$ 一般并不相同，两组上界应分别记录，或取其中较小者，不宜
+合并写成一个「双侧夹逼」。
+
+\paragraph{命题 4.2 与命题 4.3。}
+命题 4.2：若 $k\le n=2^{s}-1$，则
+\begin{equation*}
+  \imdim\bigl(G_k(\R^{n+k})\bigr)\ \ge\
+  \binom{n+k}{2}-\binom{2^{s}-k}{2}.
+\end{equation*}
+命题 4.3：若 $k\le2^{s}-1$ 且 $n+k=2^{s+1}+1$，则共轭类的最高非零次数为
+\begin{equation*}
+  \delta=k(k-1)+(n-1),
+\end{equation*}
+由此得到相应的 immersion 下界。
+
+\paragraph{引言的精确等式。}
+文章引言还给出 $\imdim(G_k(\R^{2k}))=k(2k-1)$ 以及相邻奇维情形的精确等式；这些
+等式仍然只属于 immersion。
+
+\begin{remark}
+以上均为已核验的浸入维数结果。非浸入的下界可以作为嵌入的下界（嵌入必为浸入），
+但浸入的存在性、上界与精确值都不能自动转成嵌入的相应结论。
+\end{remark}
