@@ -14,6 +14,25 @@
 $i>\operatorname{rank}E$ 时 $w_i(E)=0$。Whitney 乘积公式为
 $w(E\oplus F)=w(E)w(F)$；若 $E\oplus F\cong\eps^{r}$，则 $w(F)=w(E)^{-1}$。
 
+本文反复使用下列四条规则。它们都由分裂原理得到：在适当的拉回下把丛拆成线丛的
+直和，$w$ 就归约为线丛的一次类。
+
+\begin{enumerate}[label=(\roman*),leftmargin=2.4em,itemsep=0.25em]
+  \item \emph{直和}：$w(E\oplus F)=w(E)\,w(F)$，特别地 $w(\eps^{r})=1$。
+  \item \emph{张量积}：若 $E$ 的形式根为 $x_1,\dots,x_k$、$F$ 的为
+        $y_1,\dots,y_l$，则 $E\otimes F$ 的形式根为 $x_i+y_j$，故
+        \begin{equation}
+          w(E\otimes F)=\prod_{i=1}^{k}\prod_{j=1}^{l}\bigl(1+x_i+y_j\bigr).
+          \label{eq:tensor}
+        \end{equation}
+        特别地，对线丛 $L,L'$ 有 $w_1(L\otimes L')=w_1(L)+w_1(L')$。
+  \item \emph{对偶}：$E^{*}=\Hom(E,\underline{\R})$ 的形式根为 $-x_i$，而在
+        $\Ftwo$ 中 $-x_i=x_i$，故 $w_i(E^{*})=w_i(E)$。
+  \item \emph{$\Hom$ 丛}：$\Hom(E,F)\cong E^{*}\otimes F$，结合 (ii)(iii) 得
+        其形式根同样是 $x_i+y_j$，故
+        $w(\Hom(E,F))=w(E\otimes F)$。
+\end{enumerate}
+
 我们把 $w(E)^{-1}$ 的次数 $j$ 部分记作 $\wbar_j(E)$，并称 $\wbar(E)$ 为 $E$ 的
 \emph{共轭 Stiefel--Whitney 类}。若 $w(E)=1+w_1+w_2+\cdots$，则在 $\Ftwo$ 上
 递推得到
@@ -67,15 +86,23 @@ $w_j(\nu)=0$（$j>c$）。于是 $\wbar_j(TM)=w_j(\nu)\neq0$ 迫使 $j\le c$。
 因而当 $\wbar_j(TM)\neq0$ 时，实际上有 $c\ge j+1$，环境维数至少为 $d+j+1$。
 \end{theorem}
 
-\begin{proof}[证明说明]
-端点上的加强与秩截断无关，它来自 Thom 类。按 Milnor--Stasheff
-\cite[\S11]{MilnorStasheff} 的论述，设
-$U\in H^{c}(\R^{d+c},\R^{d+c}\setminus M;\Ftwo)$ 为法丛的 Thom 类。长正合序列中
-$H^{c}(\R^{d+c};\Ftwo)=0$（因 $c>0$），故 $U$ 所对应的绝对类的限制为零；而 Thom
-自相交公式把该限制识别为 $w_c(\nu)$。于是 $w_c(\nu)=0$，高于 $c$ 的分量又由秩
-截断为零，故 $w_i(\nu)=\wbar_i(TM)=0$ 对一切 $i\ge c$ 成立。模 $2$ 的论证不需要
-定向假设。Oproiu 在文献 \cite[p.~177]{Oproiu1977} 中引用这一判据，并在第
-181--184 页用排除临界环境维数。
+\begin{proof}
+设 $\nu$ 为 $M$ 的秩 $c$ 法丛。$i>c$ 时 $w_i(\nu)=0$ 已由秩给出，故只需证
+$w_c(\nu)=0$。
+
+取向量 $u\in\R^{d+c}$，使对每个 $x\in M$ 都有 $u\notin T_xM$；这样的 $u$ 一定
+存在，因为 $\bigcup_{x\in M}T_xM$ 是低维子空间的并，不能充满整个空间。把常向量场
+$u$ 逐点正交投影到法向，得到 $\nu$ 的一个截面 $s(x)=u-(u\text{ 的切向分量})$。
+由 $u\notin T_xM$ 知 $s(x)\neq0$ 处处成立，即 $\nu$ 有处处非零的截面。
+
+对秩为 $c$ 的实向量丛，$w_c$ 就是它的模 $2$ Euler 类；而 Euler 类是零截面与任一
+横截截面的相交数（模 $2$）。既然存在处处非零的截面，该相交数为零，故
+$w_c(\nu)=0$。结合秩截断得 $w_i(\nu)=0$ 对一切 $i\ge c$ 成立，再由
+$w(\nu)=\wbar(TM)$ 即得 \eqref{eq:critical}。
+
+端点上的加强正是在这一步超出秩截断：秩截断只能控制 $i>c$，而处处非零截面的存在
+额外给出 $i=c$ 的消失。Oproiu 在文献 \cite[p.~177]{Oproiu1977} 中引用这一判据，
+并在第 181--184 页用它排除临界环境维数。
 \end{proof}
 
 \begin{remark}[两个定理的逻辑地位]

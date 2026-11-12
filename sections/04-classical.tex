@@ -30,8 +30,10 @@
 原文还给出相应的 Whitney 型正结果；以下只讨论非嵌入的证明。
 
 \begin{proof}[证明复现]
-设 $w=1+w_1+w_2=w(\cG_2)$。由 \eqref{eq:stable-tangent} 与
-$w(\cG_2\otimes\cG_2)=(1+w_1)^{2}$ 得
+设 $w=1+w_1+w_2=w(\cG_2)$。按张量积公式 \eqref{eq:tensor}，若 $\cG_2$ 的形式根
+为 $x_1,x_2$，则 $\cG_2\otimes\cG_2$ 的根为 $x_i+x_j$，其中
+$x_1+x_1=x_2+x_2=0$、$x_1+x_2=w_1$，故
+$w(\cG_2\otimes\cG_2)=(1+w_1)^{2}$。代入 \eqref{eq:stable-tangent} 得
 \begin{equation*}
   w(TG_{2,n})\,(1+w_1)^{2}=w^{n+2},
   \qquad

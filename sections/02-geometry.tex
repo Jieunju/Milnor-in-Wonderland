@@ -32,13 +32,12 @@ $V\oplus V^{\perp}=\R^{k+n}$，且随 $V$ 光滑变化，从而得到稳定平�
 这里的逆元是在 $H^*(\GK;\Ftwo)$ 的增次理想中取形式逆，并最终在 Grassmann
 流形的真实上同调环中加以解释。
 
-\subsection{正交补丛与稳定平凡化}
+\subsection{正交补丛与切丛公式}
+\label{sec:tangent}
 
 正交补丛并不是切丛。前者的秩为 $n$，而后者的秩为 $kn$；二者通过 $\Hom$ 丛相
 联系。特别地，$w_i(\cGc_k)$ 与切丛的共轭类 $\wbar_i(T\GK)$ 一般并不是同一个类，
 因此不能共用同一条横线记号。
-
-\subsection{切丛公式}
 
 \begin{proposition}[Grassmann 流形的切丛公式]
 \label{prop:tangent}
@@ -88,22 +87,34 @@ $T_V\GK\cong\Hom(V,V^{\perp})$。}
 $T_V\GK\cong\Hom(V,V^{\perp})$。这些纤维同构随 $V$ 光滑变化，得到第一式；第二式
 是 $\Hom(E,F)\cong E^{*}\otimes F$ 的自然同构。
 
-Hsiang--Szczarba \cite{HsiangSzczarba1964} 的原始证明给出了同一公式的稳定版本：
-若 $\xi$ 为典范丛，则
+\end{proof}
+
+\begin{remark}[对偶丛]
+记 $\cG_k^{*}$ 为 $\cG_k$ 的对偶丛 $\Hom(\cG_k,\underline{\R})$。标准内积给出
+自然的丛同构
+\begin{equation}
+  \cG_k\longrightarrow\cG_k^{*},\qquad v\longmapsto\langle v,\cdot\rangle ,
+  \label{eq:self-dual}
+\end{equation}
+因此\emph{在实情形下}典范丛与其对偶是同构的（参见 Milnor--Stasheff
+\cite[p.~43, Problem 3-D]{MilnorStasheff}）。这正是命题 \ref{prop:tangent} 的
+第二式可以改写成 $\cG_k\otimes\cGc_k$，以及后文反复使用
+$w(\cG_k\otimes\cG_k^{*})=w(\cG_k\otimes\cG_k)$ 的理由。对一般的实向量丛 $E$，
+同样的论证给出 $w_i(E^{*})=w_i(E)$。
+\end{remark}
+
+\begin{remark}[Hsiang--Szczarba 的稳定版本]
+Hsiang--Szczarba \cite{HsiangSzczarba1964} 的论证给出同一公式的稳定形式：若
+$\xi$ 为典范丛，则
 \[
   \tau(G_{N-k,k})\oplus(\xi\otimes\xi^{*})\cong N\xi_{\mathbb{R}} .
 \]
-在实情形用度量识别 $\xi^{*}\cong\xi$，置 $N=n+k$ 即得
+在实情形用 \eqref{eq:self-dual} 识别 $\xi^{*}\cong\xi$，置 $N=n+k$ 即得
 \begin{equation}
   T\GK\oplus(\cG_k\otimes\cG_k)\cong(n+k)\,\cG_k .
   \label{eq:stable-tangent}
 \end{equation}
 这也可由 $\cG_k\oplus\cGc_k\cong\eps^{n+k}$ 与
-$T\GK\cong\cG_k^{*}\otimes\cGc_k$ 直接推出。
-\end{proof}
-
-\begin{remark}
-关系 \eqref{eq:stable-tangent} 是第 \ref{sec:classical} 章一切特征类计算的出发点；
-它与命题 \ref{prop:tangent} 的局部形式互为补充：前者稳定、便于求总类，后者逐点、
-便于看清 $\cGc_k$ 的几何来源。
+$T\GK\cong\cG_k^{*}\otimes\cGc_k$ 直接推出。定理的证明用的是逐点的图像坐标，
+此处只把稳定形式留作后文计算总类时的入口。
 \end{remark}
